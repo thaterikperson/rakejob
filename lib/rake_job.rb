@@ -1,5 +1,3 @@
-
-
 class RakeJob
 
   def self.find_rake
@@ -17,9 +15,14 @@ class RakeJob
 
   def run!
     command = "cd #{RAILS_ROOT} && #{@@rake} #{@task}"
-    system command
+    unless (system command)
+    	raise RakeTaskNotFoundError
+    end
   end
 end
 
-class RakeNotInstalledException < StandardError
+class RakeTaskNotFoundError < StandardError
+end
+
+class RakeNotInstalledError < StandardError
 end
