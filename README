@@ -1,13 +1,18 @@
-RakeJob
-=======
-
-Introduction goes here.
+= RakeJob
+==== A plugin to call rake tasks from within your rails application
 
 
-Example
-=======
+=== Usage 
+  class AccountsController < ApplicationController
+    def create
+      RakeJob.new('db:bootsrap').run!
+    end
+  end
+  
+=== Supported platforms
+Only unix platforms are currently supported. Pull requests are welcome to help support Windows.
+  
 
-Example goes here.
+=== License
 
-
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+RakeJob is released under the MIT license.
