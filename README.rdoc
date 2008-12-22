@@ -1,6 +1,8 @@
 = RakeJob
 ==== A plugin to call rake tasks from within your rails application
 
+=== Install
+  $ ruby script/plugin install git://github.com/erikperson/rakejob.git 
 
 === Usage 
   class AccountsController < ApplicationController
