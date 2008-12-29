@@ -19,9 +19,9 @@ class RakeJob
     @args.each do |name, value|
       parameters += "#{name}=#{value} "
     end
-    command = "cd #{RAILS_ROOT} && #{@@rake} RAILS_ENV=#{ENV['RAIL_ENV']} #{@task} #{parameters}"
+    command = "cd #{RAILS_ROOT} && #{@@rake} RAILS_ENV=#{ENV['RAILS_ENV']} #{@task} #{parameters}"
     unless (system command)
-    	raise RakeTaskNotFoundError
+    	raise RakeTaskNotFoundError.new(command)
     end
   end
 end
